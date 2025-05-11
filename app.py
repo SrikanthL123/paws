@@ -16,10 +16,11 @@ def form():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
+        feedback = request.form['feedback']
 
         cursor = db.cursor()
-        sql = "INSERT INTO users (username, email) VALUES (%s, %s)"
-        cursor.execute(sql, (username, email))
+        sql = "INSERT INTO users (username, email, feedback) VALUES (%s, %s, %s)"
+        cursor.execute(sql, (username, email, feedback))
         db.commit()
 
         return "Data saved successfully!"
