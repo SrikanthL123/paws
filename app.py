@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 # Connect to AWS RDS (edit values!)
 db = pymysql.connect(
-    host='YOUR-RDS-ENDPOINT',
+    host='db1.ci9ecqc4s3a2.us-east-1.rds.amazonaws.com',
     user='admin',
-    password='yourpassword',
+    password='Suhani4567',
     database='userdb'
 )
 
