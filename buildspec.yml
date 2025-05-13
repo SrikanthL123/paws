@@ -17,7 +17,7 @@ artifacts:
     - app.py
     - app.wsgi
     - requirements.txt
-    - - package/**
+    - package/**
     - templates/**
     - static/**
     - scripts/**               # If you have helper deployment scripts
