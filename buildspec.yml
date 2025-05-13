@@ -1,4 +1,3 @@
-# buildspec.yml
 version: 0.2
 
 phases:
@@ -6,15 +5,21 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - echo Installing dependencies
-      - python3 -m venv venv
-      - source venv/bin/activate
-      - pip install -r requirements.txt
+      - echo Installing dependencies...
+      - pip install -r requirements.txt -t ./package
 
   build:
     commands:
-      - echo Build step complete
+      - echo Build completed.
 
 artifacts:
   files:
-    - '**/*'
+    - app.py
+    - app.wsgi
+    - requirements.txt
+    - - package/**
+    - templates/**
+    - static/**
+    - scripts/**               # If you have helper deployment scripts
+    - .ebextensions/**         # If using any environment configs
+  discard-paths: no
