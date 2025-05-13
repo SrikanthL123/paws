@@ -1,0 +1,35 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Copy code to EC2
+      uses: appleboy/scp-action@v0.1.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_KEY }}
+        source: "."
+        target: "/home/ubuntu/paws"
+
+    - name: SSH to EC2 and restart app
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          cd /home/ubuntu/paws
+          source venv/bin/activate
+          sudo systemctl restart apache2
+
