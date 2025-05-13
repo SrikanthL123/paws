@@ -11,15 +11,17 @@ phases:
   build:
     commands:
       - echo Build completed.
+      - ls -la  # For debugging
 
 artifacts:
   files:
+    - appspec.yml  # THIS WAS MISSING - ADD IT FIRST
     - app.py
     - app.wsgi
     - requirements.txt
     - package/**
     - templates/**
     - static/**
-    - scripts/**               # If you have helper deployment scripts
-    - .ebextensions/**         # If using any environment configs
+    - scripts/**
+    - .ebextensions/**
   discard-paths: no
