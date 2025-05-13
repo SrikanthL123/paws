@@ -1,18 +1,83 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
     <title>User Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        textarea {
+            resize: vertical; /* Allow only vertical resizing */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add some spacing between form elements. */
+        form > * {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media screen and (max-width: 600px) {
+            form {
+                width: 95%;
+                margin: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <h2>Enter User Info</h2>
     <form method="POST">
-        Username: <input type="text" name="username"><br><br>
-        Email: <input type="email" name="email"><br><br>
-        Feedback: <br>
-        <textarea name="feedback" rows="4" cols="50"></textarea><br><br>
-
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="feedback">Feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
-
