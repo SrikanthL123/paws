@@ -11,7 +11,7 @@ while True:
     
     try: #code here
         with open(fname, "a") as file:
-            content=input("Enter content to write ")
+            content=input("Enter content to write or type save ")
             while content.lower() != 'save':
                 file.write(content + '\n')
                 content = input("")
